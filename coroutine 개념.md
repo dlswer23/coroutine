@@ -148,4 +148,23 @@ job은 실행중인 코루틴을 취소할 수 있습니다.
 1. 코루틴이 다른 코루틴의 coroutineScope 내에서 실행되면 CoroutineScope.coroutineContext를 통해 컨텍스트를 상속 받고부모 코루틴job 의 자식이 됩니다.
 2. 부모 코루틴이 취소되면, 자식 코루틴들은 재귀적으로 취소됩니다.
 3. GlobalScope는 부모 코루틴의 영향을 받지 않습니다.
-4. 부모 코루틴은 자식 코루틴이 완료될때까지 대기한다. join()이 필요가 없습니다.ㄴ
+4. 부모 코루틴은 자식 코루틴이 완료될때까지 대기한다. join()이 필요가 없습니다.
+
+
+
+#### 코루틴 예제
+
+```Ko
+GlobalScope.launch {
+    launch {
+        print("At Here!")
+    }
+    val value: Int = async {
+        var total = 0
+        for (i in 1..10) total += i
+        total
+    }.await()
+    print("$value")
+}
+```
+
