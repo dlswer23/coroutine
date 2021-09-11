@@ -74,3 +74,10 @@ println("Hello!")
 Thread.sleep(2000L)
 ```
 
+
+
+위의 예제에서 GlobalScope는 전체 어플리케이션의 라이프타임으로 scope로, launch는 해당 코드 블럭을 현재스레드를 blocking 하지 않고 코루틴으로 실행합니다.
+
+위의 예제에서 delay 함수는 blocking 할 수 없는 suspending 함수이기 때문에 GlobalScope.launch 대신 Thread를 사용하면, 에러가 발생합니다.
+
+그렇다면 blocking을 하기 위해서는 아래와 같은 조치를 취해야 합니다.
