@@ -81,3 +81,20 @@ Thread.sleep(2000L)
 위의 예제에서 delay 함수는 blocking 할 수 없는 suspending 함수이기 때문에 GlobalScope.launch 대신 Thread를 사용하면, 에러가 발생합니다.
 
 그렇다면 blocking을 하기 위해서는 아래와 같은 조치를 취해야 합니다.
+
+
+
+```Ko
+GlobalScope.launch {
+		delay(1000L)
+		println("World!")
+}
+println("Hello")
+runBlocking {
+		delay(2000L)
+}
+```
+
+coroutineScope는 runBlocking과는 다르게, 모든 자식들이 완료될 때 까지 현재 스레드를 Block 시키지 않습니다 . 
+
+함수로 만들기 위해서는 suspend 키워드를 붙여서 만들어야 합니다.
