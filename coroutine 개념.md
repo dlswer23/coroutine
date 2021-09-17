@@ -98,3 +98,25 @@ runBlocking {
 coroutineScope는 runBlocking과는 다르게, 모든 자식들이 완료될 때 까지 현재 스레드를 Block 시키지 않습니다 . 
 
 함수로 만들기 위해서는 suspend 키워드를 붙여서 만들어야 합니다.
+
+
+
+#### 코루틴 취소 
+
+```Ko
+val job = launch {
+		repeat(1_000) { i ->
+				println("job: I'm sleeping $i ...")
+				delay(500L)
+		}
+}
+delay(1300L)
+println("main: I'm tired of waiting!")
+job.cancel()
+job.join() 
+println("main: Now I can quit.")
+```
+
+여기서 launch 블럭은 job Type을 리턴합니다.
+
+job은 실행중인 코루틴을 취소할 수 있습니다.
