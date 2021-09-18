@@ -49,17 +49,17 @@ Android에서 코루틴은 기본 스레드를 차단하여 앱이 응답하지 
 
 **병행성(Concurrency)**
 
-1. 동시에 실행되는 것처럼 보이는 것.
-2. Logical Level에 속한다.
+1. 동시에 실행되는 것처럼 보이는 것
+2. Logical Level 사용
 3. Single Core 사용
-4. 물리적으로 병렬이 아닌 순차적으로 동작할 수 있다.
-5. 실제로는 Time-sharing으로 CPU를 나눠 사용함으로써 사용자가 Concurrency를 느낄 수 있도록 한다.
+4. 물리적으로 병렬이 아닌 순차적으로 동작
+5. 실제로는 Time-sharing으로 CPU를 나눠 사용함으로써 사용자가 Concurrency 체험
 
 **병렬성(Parallelism)**
 
-1. 실제로 동시에 작업이 처리가 되는 것.
-2. Physical(Machine) Level에 속한다.
-3. 오직 Multi Core에서만 가능하다.
+1. 실제로 동시에 작업이 처리가 되는 것
+2. Physical(Machine) Level에 속함
+3. 오직 Multi Core에서만 가능
 
 
 
