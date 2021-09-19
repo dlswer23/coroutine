@@ -120,3 +120,11 @@ println("main: Now I can quit.")
 여기서 launch 블럭은 job Type을 리턴합니다.
 
 job은 실행중인 코루틴을 취소할 수 있습니다.
+
+
+
+
+
+#### withContext
+
+스레드 간의 점프에 사용된다. withContext를 사용함으로써 사용하는 쓰레드 변경이 가능하다.
