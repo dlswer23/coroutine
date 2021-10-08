@@ -129,6 +129,18 @@ job은 실행중인 코루틴을 취소할 수 있습니다.
 
 
 
+#### Dispatchers
+
+코루틴 실행에 사용하는 스레드를 결정한다. 모든 코루틴 빌더(ex, launch, async) 는 디스패처를 지정할 수 있습니다.
+
+다음은 대표적인 Dispathers
+
+1. Default: 오래 걸리는 작업을 할 때. 공유된 백그라운드 스레드 풀 사용합니다.
+2. IO: 파일을 쓰거나 API 콜 같은 상황에서 사용합니다.
+3. Main: 메인스레드 작업에 사용합니다.
+
+
+
 #### 부모 코루틴의 책임
 
 1. 코루틴이 다른 코루틴의 coroutineScope 내에서 실행되면 CoroutineScope.coroutineContext를 통해 컨텍스트를 상속 받고부모 코루틴job 의 자식이 됩니다.
