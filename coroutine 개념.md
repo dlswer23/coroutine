@@ -184,3 +184,31 @@ private suspend fun doSomething():Int {
 }
 ```
 
+```Ko
+print("Start...")
+GlobalScope.launch(Dispatchers.Main) {
+    val job1 = async(Dispatchers.IO) {
+        var total = 0
+        for (i in 1..10) {
+            total += i
+            delay(100)
+        }
+        print("job1")
+        total
+    }
+    val job2 = async(Dispatchers.Main) {
+        var total = 0
+        for (i in 1..10) {
+            delay(100)
+            total += i
+        }
+        print("job2")
+        total
+    }
+    val result1 = job1.await()
+    val result2 = job2.await()
+    print("results are $result1 and $result2")
+}
+print("End.")
+```
+
