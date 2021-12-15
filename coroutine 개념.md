@@ -60,3 +60,17 @@ Android에서 코루틴은 기본 스레드를 차단하여 앱이 응답하지 
 1. 실제로 동시에 작업이 처리가 되는 것.
 2. Physical(Machine) Level에 속한다.
 3. 오직 Multi Core에서만 가능하다.
+
+
+
+#### 코틀린 코루틴
+
+``` kotlin
+GlobalScope.launch{
+  delay(1000L)
+  println("world!")
+}
+println("Hello!")
+Thread.sleep(2000L)
+```
+
